@@ -3,6 +3,29 @@
 #include <string.h>
 #include "variaveis.h"
 
+void menuCalendario(){
+    printf("-----------------------------------------------\n");
+    printf("Selecione qual funcionalidade deseja utilizar:\n");
+    printf("1. Criar evento\n");
+    printf("2. Excluir evento\n");
+    printf("3. Editar dados de um evento\n");
+    printf("0. Sair do aplicativo\n");
+    printf("-----------------------------------------------\n");
+    int esc;
+    printf("Digite sua escolha: ");
+    scanf("%d", &esc);
+    switch(esc){
+        case 1:
+            printf("criar");
+        case 2:
+            printf("excluir");
+        case 3:
+            printf("editar");
+        case 0:
+            printf("sair");
+    }
+}
+
 void menu(){
     printf("-----------------------------------------------\n");
     printf("Selecione qual aplicativo deseja utilizar:\n");
@@ -18,12 +41,16 @@ void menu(){
     switch(esc){
         case 1:
             printf("agenda");
+            break;
         case 2:
             printf("planilha");
+            break;
         case 3:
-            printf("calendario");
+            menuCalendario();
+            break;
         case 4:
             printf("faculdade");
+            break;
         case 0:
             printf("Saindo do programa. Tchau!!!!");
             exit(0);
