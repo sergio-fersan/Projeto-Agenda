@@ -86,6 +86,7 @@ int main(){
     // TRABALHO TEM: MATÉRIA, PROFESSOR, TEMA, GRUPO, PRAZO
     printf("Bem vindo!!\n");
     menu();
+    
 
     return 0;
 }

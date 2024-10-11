@@ -8,6 +8,10 @@ typedef struct {
     float valor;
 } Variavel;
 
+void clearBuffer(){
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 
 void criarVar(const char *arquivo, const char *variavel, float valor) {
     FILE *arq = fopen(arquivo, "ab");
