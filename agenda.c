@@ -3,6 +3,33 @@
 #include <string.h>
 #include "variaveis.h"
 
+void menu(){
+    printf("-----------------------------------------------\n");
+    printf("Selecione qual aplicativo deseja utilizar:\n");
+    printf("1. Agenda\n");
+    printf("2. Planilha do banco\n");
+    printf("3. Calendario\n");
+    printf("4. Organizador de trabalhos de faculdade\n");
+    printf("0. Sair\n");
+    printf("-----------------------------------------------\n");
+    int esc;
+    printf("Digite sua escolha: ");
+    scanf("%d", &esc);
+    switch(esc){
+        case 1:
+            printf("agenda");
+        case 2:
+            printf("planilha");
+        case 3:
+            printf("calendario");
+        case 4:
+            printf("faculdade");
+        case 0:
+            printf("Saindo do programa. Tchau!!!!");
+            exit(0);
+    }
+}
+
 int main(){
     // IDEIA: AGENDA, PLANILHA DE BANCO, CALENDÁRIO E ORGANIZADOR DE TRABALHOS DE FACULDADE
     // PRIMEIRO TEM QUE CRIAR O ARQUIVO .BIN E AS VARIAVEIS, SÓ DEPOIS PODE ALTERAR E LER
@@ -25,7 +52,8 @@ int main(){
     // REGISTRAR TRABALHO, REGISTRAR PROVA, EXCLUIR
     // PROVA TEM: MATÉRIA, PROFESSOR, CONTEÚDO, DETALHES
     // TRABALHO TEM: MATÉRIA, PROFESSOR, TEMA, GRUPO, PRAZO
-    
+    printf("Bem vindo!!\n");
+    menu();
 
     return 0;
 }
