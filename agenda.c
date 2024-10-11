@@ -30,6 +30,11 @@ void menu(){
     }
 }
 
+void calendario(){
+    printf("Aplicativo: Calendario\n");
+    // criar biblioteca
+}
+
 int main(){
     // IDEIA: AGENDA, PLANILHA DE BANCO, CALENDÁRIO E ORGANIZADOR DE TRABALHOS DE FACULDADE
     // PRIMEIRO TEM QUE CRIAR O ARQUIVO .BIN E AS VARIAVEIS, SÓ DEPOIS PODE ALTERAR E LER
