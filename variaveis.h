@@ -2,8 +2,10 @@
 #define VARIAVEIS_H
 
 void clearBuffer();
-void criarVar(const char *, const char *, float);
-void altVar(const char *, const char *, float);
+void criarVarBin(const char *, const char *, float);
+void altVarBin(const char *, const char *, float);
+float lerVarBin(const char *, const char *);
+void escVar(const char *, const char *, float);
 float lerVar(const char *, const char *);
 
 #endif

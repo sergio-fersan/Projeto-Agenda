@@ -13,7 +13,7 @@ void clearBuffer(){
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-void criarVar(const char *arquivo, const char *variavel, float valor) {
+void criarVarBin(const char *arquivo, const char *variavel, float valor) {
     FILE *arq = fopen(arquivo, "ab");
 
     Variavel var;
@@ -25,7 +25,7 @@ void criarVar(const char *arquivo, const char *variavel, float valor) {
     fclose(arq);
 }
 
-void altVar(const char *arquivo, const char *variavel, float valor) {
+void altVarBin(const char *arquivo, const char *variavel, float valor) {
     FILE *arq = fopen(arquivo, "r+b");
 
     Variavel var;
@@ -41,7 +41,7 @@ void altVar(const char *arquivo, const char *variavel, float valor) {
     fclose(arq);
 }
 
-float lerVar(const char *arquivo, const char *variavel) {
+float lerVarBin(const char *arquivo, const char *variavel) {
     FILE *arq = fopen(arquivo, "rb");
 
     Variavel var;
@@ -54,4 +54,54 @@ float lerVar(const char *arquivo, const char *variavel) {
     
     fclose(arq);
     return 0; // se nn achou a variavel retorna 0
+}
+
+void escVar(const char *arquivo, const char *variavel, float valor){ // escrever em txt
+    FILE *arq = fopen(arquivo, "r");
+    
+    int achouVar = 0; // diz se achou a variavel no txt
+    char linha[100];
+    char buffer[200] = "";
+
+    while(fgets(linha, sizeof(linha), arq)){
+        char tmpVar[15];
+        float tmpVal;
+        
+        if(sscanf(linha, "%[^ ] %f", tmpVar, &tmpVal) == 2){
+            if(strcmp(tmpVar, variavel) != 0){ // se as variaveis forem dif
+                snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer), "%s %f\n", tmpVar, tmpVal);
+            } else{
+                snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer), "%s %f\n", tmpVar, valor);
+                achouVar = 1;
+            }
+        } else{
+            strncat(buffer, linha, sizeof(buffer) - strlen(buffer) - 1); // deixa a linha igual se nn for usar
+        }
+    } // nada disso ta escrevendo ainda, so armazenando em variavel
+    fclose(arq);
+
+    if(achouVar == 1){
+        arq = fopen(arquivo, "w");
+        fputs(buffer, arq);
+        fclose(arq);
+    }
+}
+
+float lerVar(const char *arquivo, const char *variavel){ // ler em txt
+    FILE *arq = fopen(arquivo, "r");
+
+    char linha[100];
+
+    while(fgets(linha, sizeof(linha), arq)){
+        char tmpVar[15];
+        float tmpVal;
+
+        if(sscanf(linha, "%[^ ] %f", tmpVar, &tmpVal) == 2){  // %[^ ] procura até o espaço, %d lê o valor da variável
+            if(strcmp(tmpVar, variavel) == 0){
+                fclose(arq);
+                return tmpVal;
+            }
+        }
+    }
+    return 0;
 }
