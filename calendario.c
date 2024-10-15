@@ -183,3 +183,14 @@ void exibirProximos(int diasMain) {
 
     fclose(arq);
 }
+
+void criarEventoTrabalho(const char *nome, int dia, int mes){
+    evento evt;
+
+    FILE *arq = fopen("eventos.txt", "a");
+    fprintf(arq, "Nome: Trabalho %s\n", nome);
+    fprintf(arq, "Data: %d/%d (dd/mm)\n", dia, mes);
+    fprintf(arq, "Local: 0\n");
+    fprintf(arq, "Horario: 0\n\n");
+    fclose(arq);
+}

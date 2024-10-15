@@ -68,6 +68,7 @@ void criarTrabalho(){
     fprintf(arq, "Data: %d/%d (dd/mm)\n\n", t.dia, t.mes);
     fclose(arq);
 
+    criarEventoTrabalho(t.tema, t.dia, t.mes);
     printf("Trabalho registrado com sucesso!!\n");
     
 }
