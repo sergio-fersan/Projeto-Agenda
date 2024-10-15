@@ -81,3 +81,54 @@ void exibirEvento(){
         fclose(arq);
     }
 }
+
+void excluirEvento(){
+    int achou = 0;
+    char tmp[30];
+    evento evtTmp;
+    while(1){
+        printf("Digite o nome do evento a ser excluido (digite 0 para sair): ");
+        fgets(tmp, 30, stdin);
+        tmp[strcspn(tmp, "\n")] = '\0';
+        if(strcmp(tmp, "0") == 0){
+            return;
+        }
+        FILE *arq = fopen("eventos.txt", "r");
+        FILE *arqTmp = fopen("tmp.txt", "w"); // txt temporario pra guardar os outros eventos
+        while(fscanf(arq, "Nome: %[^\n]\n", evtTmp.nome) == 1){
+            fscanf(arq, "Data: %d/%d (dd/mm)\n", &evtTmp.dia, &evtTmp.mes);
+            fscanf(arq, "Local: %[^\n]\n", evtTmp.local);
+            fscanf(arq, "Horario: %[^\n]\n\n", evtTmp.horario);
+            if(strcmp(evtTmp.nome, tmp) != 0){ // enquanto nao achou o evento
+                fprintf(arqTmp, "Nome: %s\n", evtTmp.nome);
+                fprintf(arqTmp, "Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
+                fprintf(arqTmp, "Local: %s\n", evtTmp.local);
+                fprintf(arqTmp, "Horario: %s\n\n", evtTmp.horario);
+            } else{
+                achou = 1;
+            }
+        }
+        fclose(arq);
+        fclose(arqTmp);
+        if(achou != 1){
+            printf("Evento nao encontrado!! Tente novamente\n");
+            remove("tmp.txt");
+        } else{
+            remove("eventos.txt");
+            rename("tmp.txt", "eventos.txt");
+            printf("Evento removido com sucesso!!\n");
+            break;
+        }
+    }
+}
+
+void exibirTudo(){
+    char linha[100];
+    FILE *arq = fopen("eventos.txt", "r");
+
+    printf("Lista de eventos registrados:\n");
+    while(fgets(linha, sizeof(linha), arq) != NULL){
+        printf("%s", linha);
+    }
+    fclose(arq);
+}

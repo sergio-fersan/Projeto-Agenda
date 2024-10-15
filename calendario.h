@@ -3,5 +3,7 @@
 
 void criarEvento();
 void exibirEvento();
+void excluirEvento();
+void exibirTudo();
 
 #endif
