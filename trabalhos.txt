@@ -1,6 +1,0 @@
-Materia: sistemas digitais
-Professor: avelino
-Tema: nn sei
-Grupo: sergio, estela, bia, rhian
-Data: 2/4 (dd/mm)
-

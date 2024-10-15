@@ -6,6 +6,6 @@ void exibirEvento();
 void excluirEvento();
 void exibirTudo();
 void exibirProximos(int);
-void criarEventoTrabalho(const char *, int, int);
+void criarEventoTrabalho(const char *, int, int, int);
 
 #endif
