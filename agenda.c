@@ -4,26 +4,42 @@
 #include "variaveis.h"
 #include "calendario.h"
 
+void menu();
+
 void menuCalendario(){
     printf("-----------------------------------------------\n");
     printf("Selecione qual funcionalidade deseja utilizar:\n");
     printf("1. Criar evento\n");
     printf("2. Excluir evento\n");
-    printf("3. Editar dados de um evento\n");
+    printf("3. Exibir um evento\n");
+    printf("4. Exibir todos os eventos\n");
     printf("0. Sair do aplicativo\n");
     printf("-----------------------------------------------\n");
     int esc;
     printf("Digite sua escolha: ");
     scanf("%d", &esc);
+    printf("-----------------------------------------------\n");
+    clearBuffer();
     switch(esc){
         case 1:
-            printf("criar");
+            criarEvento();
+            menuCalendario();
+            break;
         case 2:
-            printf("excluir");
+            excluirEvento();
+            menuCalendario();
+            break;
         case 3:
-            printf("editar");
+            exibirEvento();
+            menuCalendario();
+            break;
+        case 4:
+            exibirTudo();
+            menuCalendario();
+            break;
         case 0:
-            printf("sair");
+            menu();
+            break;
     }
 }
 
@@ -39,6 +55,7 @@ void menu(){
     int esc;
     printf("Digite sua escolha: ");
     scanf("%d", &esc);
+    printf("-----------------------------------------------\n");
     switch(esc){
         case 1:
             printf("agenda");
@@ -60,7 +77,7 @@ void menu(){
 
 void calendario(){
     printf("Aplicativo: Calendario\n");
-    // criar biblioteca
+    menuCalendario();
 }
 
 int main(){
@@ -73,20 +90,39 @@ int main(){
     // CONTATO TEM: NOME COMPLETO, DESCRIÇÃO, TELEFONE, E-MAIL, ID
     // BIN
 
-    // CALENDÁRIO: SERVE PARA ORGANIZAR EVENTOS E LEMBRAR O USUÁRIO
-    // LEMBRA OO USUÁRIO DE EVENTOS PRÓXIMOS TODA VEZ QUE ENTRAR
-    // MARCAR EVENTO, EXCLUIR EVENTO, EXIBIR UM EVENTO, EXIBIR TODOS OS EVENTOS
-    // EVENTO TEM: NOME, DATA, LOCAL, HORÁRIO
-    // TXT
-
     // ORGANIZADOR DE TRABALHOS DE FACULDADE:
     // REGISTRAR TRABALHO, REGISTRAR PROVA, EXCLUIR
     // PROVA TEM: MATÉRIA, PROFESSOR, CONTEÚDO, DETALHES
     // TRABALHO TEM: MATÉRIA, PROFESSOR, TEMA, GRUPO, PRAZO
     // TXT
-    // printf("Bem vindo!!\n");
-    // menu();
-    exibirTudo();
+
+    int dia, mes;
+    int diasTot = 0;
+    int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    printf("Bem vindo!!\n");
+    while(1){
+        printf("Informe o dia atual: ");
+        scanf("%d", &dia);
+        printf("Informe o mes atual: ");
+        scanf("%d", &mes);
+        if(mes < 1 || mes > 12){
+            printf("Data inválida!! Tente novamente\n");
+        } else{
+            break;
+        }
+    }
+    if(mes != 1){
+        for(int idx = 0; idx < (mes - 1); idx++){
+            diasTot += diasPorMes[idx];
+        }
+        diasTot += dia;
+    } else{
+        diasTot = dia;
+    }
+    printf("-----------------------------------------------\n");
+    exibirProximos(diasTot);
+    menu();
     
     
 

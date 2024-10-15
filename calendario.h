@@ -5,5 +5,6 @@ void criarEvento();
 void exibirEvento();
 void excluirEvento();
 void exibirTudo();
+void exibirProximos(int);
 
 #endif

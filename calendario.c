@@ -20,8 +20,15 @@ void criarEvento(){
     fprintf(arq, "Nome: %s\n", evt.nome);
     printf("Digite o dia do evento: ");
     scanf("%d", &evt.dia);
-    printf("Digite o mes (em numero) do evento: ");
-    scanf("%d", &evt.mes);
+    while(1){
+        printf("Digite o mes (em numero) do evento: ");
+        scanf("%d", &evt.mes);
+        if(evt.mes < 1 || evt.mes > 12){
+            printf("Data inválida!! Tente novamente\n");
+        } else{
+            break;
+        }
+    }
     clearBuffer();
     fprintf(arq, "Data: %d/%d (dd/mm)\n", evt.dia, evt.mes);
     printf("Digite o local do evento (deixe em branco se nao houver local): ");
@@ -130,5 +137,49 @@ void exibirTudo(){
     while(fgets(linha, sizeof(linha), arq) != NULL){
         printf("%s", linha);
     }
+    fclose(arq);
+}
+
+void exibirProximos(int diasMain) {
+    evento evtTmp;
+    int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    FILE *arq = fopen("eventos.txt", "r");
+    int achou = 0;
+
+    while (fscanf(arq, "Nome: %[^\n]\n", evtTmp.nome) == 1) {
+        int diasTot = 0; // diasMain é o diasTot do main, esse é o da função
+        int esc = 0;
+        fscanf(arq, "Data: %d/%d (dd/mm)\n", &evtTmp.dia, &evtTmp.mes);
+        fscanf(arq, "Local: %[^\n]\n", evtTmp.local);
+        fscanf(arq, "Horario: %[^\n]\n\n", evtTmp.horario);
+        if(evtTmp.mes != 1){
+            for(int idx = 0; idx < (evtTmp.mes - 1); idx++){
+            diasTot += diasPorMes[idx];
+            }
+            diasTot += evtTmp.dia;
+        } else{
+            diasTot = evtTmp.dia;
+        }
+
+        if ((diasTot - diasMain) <= 5 && (diasTot - diasMain) > 0){ // se faltar 5 dias pro evento
+            printf("Voce tem um evento em %d dias!!\n", diasTot - diasMain);
+            printf("Nome: %s\n", evtTmp.nome);
+            printf("Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
+            printf("Local: %s\n", evtTmp.local);
+            printf("Horario: %s\n\n", evtTmp.horario);
+            achou = 1;
+        } else if(diasTot == diasMain){
+            printf("Voce tem um evento hoje!!!!!!!\n");
+            printf("Nome: %s\n", evtTmp.nome);
+            printf("Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
+            printf("Local: %s\n", evtTmp.local);
+            printf("Horario: %s\n\n", evtTmp.horario);
+        }
+    }
+
+    if (achou != 1) {
+        printf("Voce nao tem eventos proximos\n");
+    }
+
     fclose(arq);
 }
