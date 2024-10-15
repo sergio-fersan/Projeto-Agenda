@@ -84,7 +84,7 @@ void criarTrabalho(){
             fprintf(arq, "Prazo: %d/%d (dd/mm)\n\n", t.dia, t.mes);
             fclose(arq);
 
-            criarEventoTrabalho(t.tema, t.dia, t.mes, 1);
+            criarEventoTrabalho(t.materia, t.dia, t.mes, 1);
             printf("Trabalho registrado com sucesso!!\n");
             break;
         } else{
@@ -129,4 +129,98 @@ void criarTrabalho(){
         }
     }
     
+}
+
+void excluirTrabalho(){
+    int achou = 0;
+    char tmp[30];
+    int esc;
+    while(1){
+        printf("Digite 1 para excluir um trabalho, 2 para excluir uma prova e 0 para sair: ");
+        scanf("%d", &esc);
+        clearBuffer();
+        if(esc != 1 && esc != 2 && esc != 0){
+            printf("Valor invalido!! Tente novamente\n");
+        } else if(esc == 0){
+            return;
+        } else if(esc == 1){
+            trabalho t;
+            while(1){
+                printf("Digite a materia do trabalho a ser excluido (digite 0 para sair): ");
+                fgets(tmp, 30, stdin);
+                tmp[strcspn(tmp, "\n")] = '\0';
+                if(strcmp(tmp, "0") == 0){
+                    return;
+                }
+                FILE *arq = fopen("trabalhos.txt", "r");
+                FILE *arqTmp = fopen("tmp.txt", "w");
+                while(fscanf(arq, "Materia: %[^\n]\n", t.materia) == 1){
+                    fscanf(arq, "Professor: %[^\n]\n", t.professor);
+                    fscanf(arq, "Tema: %[^\n]\n", t.tema);
+                    fscanf(arq, "Grupo: %[^\n]\n", t.grupo);
+                    fscanf(arq, "Prazo: %d/%d (dd/mm)\n\n", &t.dia, &t.mes);
+                    if(strcmp(t.materia, tmp) != 0){
+                        fprintf(arqTmp, "Materia: %s\n", t.materia);
+                        fprintf(arqTmp, "Professor: %[^\n]\n", t.professor);
+                        fprintf(arqTmp, "Tema: %[^\n]\n", t.tema);
+                        fprintf(arqTmp, "Grupo: %[^\n]\n", t.grupo);
+                        fprintf(arqTmp, "Prazo: %d/%d (dd/mm)\n\n", &t.dia, &t.mes);
+                    } else{
+                        achou = 1;
+                    }
+                }
+                fclose(arq);
+                fclose(arqTmp);
+                if(achou != 1){
+                    printf("Trabalho nao encontrado!! Tente novamente\n");
+                    remove("tmp.txt");
+                } else{
+                    remove("trabalhos.txt");
+                    rename("tmp.txt", "trabalhos.txt");
+                    printf("Trabalho removido com sucesso!!\n");
+                    break;
+                }
+            }
+
+        } else{
+            prova p;
+            while(1){
+                printf("Digite a materia da prova a ser excluida (digite 0 para sair): ");
+                fgets(tmp, 30, stdin);
+                tmp[strcspn(tmp, "\n")] = '\0';
+                if(strcmp(tmp, "0") == 0){
+                    return;
+                }
+                FILE *arq = fopen("provas.txt", "r");
+                FILE *arqTmp = fopen("tmp.txt", "w");
+                while(fscanf(arq, "Materia: %[^\n]\n", p.materia) == 1){
+                    fscanf(arq, "Professor: %[^\n]\n", p.professor);
+                    fscanf(arq, "Conteudo: %[^\n]\n", p.conteudo);
+                    fscanf(arq, "Detalhes: %[^\n]\n", p.detalhes);
+                    fscanf(arq, "Data: %d/%d (dd/mm)\n\n", &p.dia, &p.mes);
+                    if(strcmp(p.materia, tmp) != 0){
+                        fprintf(arqTmp, "Materia: %s\n", p.materia);
+                        fprintf(arqTmp, "Professor: %[^\n]\n", p.professor);
+                        fprintf(arqTmp, "Conteudo: %[^\n]\n", p.conteudo);
+                        fprintf(arqTmp, "Detalhes: %[^\n]\n", p.detalhes);
+                        fprintf(arqTmp, "Data: %d/%d (dd/mm)\n\n", &p.dia, &p.mes);
+                    } else{
+                        achou = 1;
+                    }
+                }
+                fclose(arq);
+                fclose(arqTmp);
+                if(achou != 1){
+                    printf("Prova nao encontrada!! Tente novamente\n");
+                    remove("tmp.txt");
+                } else{
+                    remove("provas.txt");
+                    rename("tmp.txt", "provas.txt");
+                    printf("Prova removida com sucesso!!\n");
+                    break;
+                }
+            }
+        }
+        break;
+    }
 }

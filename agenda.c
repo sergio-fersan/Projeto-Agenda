@@ -161,8 +161,7 @@ int main(){
     // printf("-----------------------------------------------\n");
     // exibirProximos(diasTot);
     // menu();
-    criarTrabalho();
-    
+    excluirTrabalho();
 
     return 0;
 }
