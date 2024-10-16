@@ -200,11 +200,11 @@ void excluirTrabalho(){
                     fscanf(arq, "Data: %d/%d (dd/mm)\n\n", &p.dia, &p.mes);
                     if(strcmp(p.materia, tmp) != 0){
                         fprintf(arqTmp, "Materia: %s\n", p.materia);
-                        fprintf(arqTmp, "Professor: %[^\n]\n", p.professor);
-                        fprintf(arqTmp, "Conteudo: %[^\n]\n", p.conteudo);
-                        fprintf(arqTmp, "Detalhes: %[^\n]\n", p.detalhes);
-                        fprintf(arqTmp, "Data: %d/%d (dd/mm)\n\n", &p.dia, &p.mes);
-                    } else{
+                        fprintf(arqTmp, "Professor: %s\n", p.professor);
+                        fprintf(arqTmp, "Conteudo: %s\n", p.conteudo);
+                        fprintf(arqTmp, "Detalhes: %s\n", p.detalhes);
+                        fprintf(arqTmp, "Data: %d/%d (dd/mm)\n\n", p.dia, p.mes);
+                    } else {
                         achou = 1;
                     }
                 }
@@ -220,6 +220,7 @@ void excluirTrabalho(){
                     break;
                 }
             }
+
         }
         break;
     }
