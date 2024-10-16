@@ -205,3 +205,52 @@ void criarEventoTrabalho(const char *nome, int dia, int mes, int tipo){ // 1 = t
         fclose(arq);
     }
 }
+
+void excluirEventoTrabalho(const char *nomeEvento) {
+    int achou = 0;
+    char tmp[40]; // Aumentar o tamanho para comportar "Trabalho " + nomeEvento
+    evento evtTmp;
+
+    // Concatenar "Trabalho " ao nome do evento
+    snprintf(tmp, sizeof(tmp), "Trabalho %s", nomeEvento);
+
+    FILE *arq = fopen("eventos.txt", "r");
+    if (arq == NULL) {
+        printf("Erro ao abrir o arquivo de eventos.\n");
+        return;
+    }
+
+    FILE *arqTmp = fopen("tmp.txt", "w");
+    if (arqTmp == NULL) {
+        fclose(arq);
+        printf("Erro ao criar arquivo temporário.\n");
+        return;
+    }
+
+    while (fscanf(arq, "Nome: %[^\n]\n", evtTmp.nome) == 1) {
+        fscanf(arq, "Data: %d/%d (dd/mm)\n", &evtTmp.dia, &evtTmp.mes);
+        fscanf(arq, "Local: %[^\n]\n", evtTmp.local);
+        fscanf(arq, "Horario: %[^\n]\n\n", evtTmp.horario);
+
+        if (strcmp(evtTmp.nome, tmp) != 0) {
+            fprintf(arqTmp, "Nome: %s\n", evtTmp.nome);
+            fprintf(arqTmp, "Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
+            fprintf(arqTmp, "Local: %s\n", evtTmp.local);
+            fprintf(arqTmp, "Horario: %s\n\n", evtTmp.horario);
+        } else {
+            achou = 1;
+        }
+    }
+
+    fclose(arq);
+    fclose(arqTmp);
+
+    if (achou != 1) {
+        printf("Evento não encontrado!!\n");
+        remove("tmp.txt");
+    } else {
+        remove("eventos.txt");
+        rename("tmp.txt", "eventos.txt");
+        printf("Evento removido com sucesso!!\n");
+    }
+}
