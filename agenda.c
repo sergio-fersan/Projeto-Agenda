@@ -153,6 +153,9 @@ int main(){
     // exibirProximos(diasTot);
     // menu();
 
+    exibirTudoContatos();
+    excluirContato();
+    exibirTudoContatos();
     
     
 

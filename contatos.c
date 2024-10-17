@@ -45,3 +45,39 @@ void exibirTudoContatos() {
     }
     fclose(arq);
 }
+
+void excluirContato(){
+    int achou = 0;
+    char tmp[30];
+    Contato cttTmp;
+    while(1){
+        printf("Digite o nome do contato a ser excluido (digite 0 para sair): ");
+        fgets(tmp, 30, stdin);
+        tmp[strcspn(tmp, "\n")] = '\0';
+        if(strcmp(tmp, "0") == 0){
+            return;
+        }
+        FILE *arq = fopen("contatos.bin", "rb");
+        FILE *arqTmp = fopen("tmp.bin", "wb");
+        
+        while(fread(&cttTmp, sizeof(Contato), 1, arq) == 1){
+            if(strcmp(cttTmp.nome, tmp) == 0){
+                achou = 1;
+            } else{
+                fwrite(&cttTmp, sizeof(Contato), 1, arqTmp);
+            }
+        }
+        fclose(arq);
+        fclose(arqTmp);
+        
+        if(achou != 1){
+            printf("Contato nao encontrado!! Tente novamente\n");
+            remove("tmp.bin");
+        } else{
+            remove("contatos.bin");
+            rename("tmp.bin", "contatos.bin");
+            printf("Contato excluido com sucesso!!\n");
+            break;
+        }
+    }
+}
