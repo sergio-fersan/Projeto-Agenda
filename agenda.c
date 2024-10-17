@@ -60,20 +60,20 @@ void menuFaculdade(){
     clearBuffer();
     switch(esc){
         case 1:
-            criarEvento();
-            menuCalendario();
+            criarTrabalho();
+            menuFaculdade();
             break;
         case 2:
-            excluirEvento();
-            menuCalendario();
+            excluirTrabalho();
+            menuFaculdade();
             break;
         case 3:
-            exibirEvento();
-            menuCalendario();
+            exibirTrabalho();
+            menuFaculdade();
             break;
         case 4:
-            exibirTudo();
-            menuCalendario();
+            exibirTudoTrabalho();
+            menuFaculdade();
             break;
         case 0:
             menu();
@@ -85,9 +85,8 @@ void menu(){
     printf("-----------------------------------------------\n");
     printf("Selecione qual aplicativo deseja utilizar:\n");
     printf("1. Agenda\n");
-    printf("2. Planilha do banco\n");
-    printf("3. Calendario\n");
-    printf("4. Organizador de trabalhos de faculdade\n");
+    printf("2. Calendario\n");
+    printf("3. Organizador de trabalhos de faculdade\n");
     printf("0. Sair\n");
     printf("-----------------------------------------------\n");
     int esc;
@@ -99,13 +98,10 @@ void menu(){
             printf("agenda");
             break;
         case 2:
-            printf("planilha");
-            break;
-        case 3:
             menuCalendario();
             break;
-        case 4:
-            printf("faculdade");
+        case 3:
+            menuFaculdade();
             break;
         case 0:
             printf("Saindo do programa. Tchau!!!!");
@@ -134,33 +130,33 @@ int main(){
     // TRABALHO TEM: MATÉRIA, PROFESSOR, TEMA, GRUPO, PRAZO
     // TXT
 
-    // int dia, mes;
-    // int diasTot = 0;
-    // int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int dia, mes;
+    int diasTot = 0;
+    int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    // printf("Bem vindo!!\n");
-    // while(1){
-    //     printf("Informe o dia atual: ");
-    //     scanf("%d", &dia);
-    //     printf("Informe o mes atual: ");
-    //     scanf("%d", &mes);
-    //     if(mes < 1 || mes > 12){
-    //         printf("Data invalida!! Tente novamente\n");
-    //     } else{
-    //         break;
-    //     }
-    // }
-    // if(mes != 1){
-    //     for(int idx = 0; idx < (mes - 1); idx++){
-    //         diasTot += diasPorMes[idx];
-    //     }
-    //     diasTot += dia;
-    // } else{
-    //     diasTot = dia;
-    // }
-    // printf("-----------------------------------------------\n");
-    // exibirProximos(diasTot);
-    // menu();
+    printf("Bem vindo!!\n");
+    while(1){
+        printf("Informe o dia atual: ");
+        scanf("%d", &dia);
+        printf("Informe o mes atual: ");
+        scanf("%d", &mes);
+        if(mes < 1 || mes > 12){
+            printf("Data invalida!! Tente novamente\n");
+        } else{
+            break;
+        }
+    }
+    if(mes != 1){
+        for(int idx = 0; idx < (mes - 1); idx++){
+            diasTot += diasPorMes[idx];
+        }
+        diasTot += dia;
+    } else{
+        diasTot = dia;
+    }
+    printf("-----------------------------------------------\n");
+    exibirProximos(diasTot);
+    menu();
 
 
     return 0;

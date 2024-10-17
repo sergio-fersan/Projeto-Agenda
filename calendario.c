@@ -174,6 +174,7 @@ void exibirProximos(int diasMain) {
             printf("Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
             printf("Local: %s\n", evtTmp.local);
             printf("Horario: %s\n\n", evtTmp.horario);
+            achou = 1;
         }
     }
 
