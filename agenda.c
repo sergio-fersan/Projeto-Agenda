@@ -4,6 +4,7 @@
 #include "variaveis.h"
 #include "calendario.h"
 #include "faculdade.h"
+#include "contatos.h"
 
 void menu();
 
@@ -115,43 +116,45 @@ void calendario(){
 }
 
 int main(){
-    // IDEIA: AGENDA, PLANILHA DE BANCO, CALENDÁRIO E ORGANIZADOR DE TRABALHOS DE FACULDADE
+    // IDEIA: AGENDA, CALENDÁRIO E ORGANIZADOR DE TRABALHOS DE FACULDADE
     // PRIMEIRO TEM QUE CRIAR O ARQUIVO .BIN E AS VARIAVEIS, SÓ DEPOIS PODE ALTERAR E LER
     // DEPOIS DE CRIAR PODE APAGAR A CHAMADA DA FUNÇÃO DE CRIAR
 
     // AGENDA: SERVE PARA SALVAR CONTATOS E INTERAGIR
-    // SALVAR CONTATO, EXLUIR CONTATO, EDITAR CONTATO, "MANDAR MENSAGEM", "LIGAR", "MANDAR E-MAIL", VER TODOS OS CONTATOS
+    // SALVAR CONTATO, EXLUIR CONTATO, EXIBIR UM CONTATO, VER TODOS OS CONTATOS
     // CONTATO TEM: NOME COMPLETO, DESCRIÇÃO, TELEFONE, E-MAIL, ID
     // BIN
 
-    int dia, mes;
-    int diasTot = 0;
-    int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    // int dia, mes;
+    // int diasTot = 0;
+    // int diasPorMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    printf("Bem vindo!!\n");
-    while(1){
-        printf("Informe o dia atual: ");
-        scanf("%d", &dia);
-        printf("Informe o mes atual: ");
-        scanf("%d", &mes);
-        if(mes < 1 || mes > 12){
-            printf("Data invalida!! Tente novamente\n");
-        } else{
-            break;
-        }
-    }
-    if(mes != 1){
-        for(int idx = 0; idx < (mes - 1); idx++){
-            diasTot += diasPorMes[idx];
-        }
-        diasTot += dia;
-    } else{
-        diasTot = dia;
-    }
-    printf("-----------------------------------------------\n");
-    exibirProximos(diasTot);
-    menu();
+    // printf("Bem vindo!!\n");
+    // while(1){
+    //     printf("Informe o dia atual: ");
+    //     scanf("%d", &dia);
+    //     printf("Informe o mes atual: ");
+    //     scanf("%d", &mes);
+    //     if(mes < 1 || mes > 12){
+    //         printf("Data invalida!! Tente novamente\n");
+    //     } else{
+    //         break;
+    //     }
+    // }
+    // if(mes != 1){
+    //     for(int idx = 0; idx < (mes - 1); idx++){
+    //         diasTot += diasPorMes[idx];
+    //     }
+    //     diasTot += dia;
+    // } else{
+    //     diasTot = dia;
+    // }
+    // printf("-----------------------------------------------\n");
+    // exibirProximos(diasTot);
+    // menu();
 
+    
+    
 
     return 0;
 }

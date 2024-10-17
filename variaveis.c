@@ -8,6 +8,11 @@ typedef struct {
     float valor;
 } Variavel;
 
+typedef struct {
+    char nome[15];
+    char string[70];
+} VarString;
+
 void clearBuffer(){
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
