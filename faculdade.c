@@ -302,3 +302,24 @@ void exibirTrabalho(){
         break;
     }
 }
+
+void exibirTudoTrabalho(){
+    char linha[100];
+    FILE *arq = fopen("trabalhos.txt", "r");
+
+    printf("Lista de trabalhos:\n");
+    while(fgets(linha, sizeof(linha), arq) != NULL){
+        printf("%s", linha);
+    }
+    fclose(arq);
+
+    FILE *arq2 = fopen("provas.txt", "r");
+
+    printf("Lista de provas:\n");
+    while(fgets(linha, sizeof(linha), arq) != NULL){
+        printf("%s", linha);
+    }
+    fclose(arq2);
+
+    
+}

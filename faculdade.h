@@ -4,5 +4,6 @@
 void criarTrabalho();
 void excluirTrabalho();
 void exibirTrabalho();
+void exibirTudoTrabalho();
 
 #endif

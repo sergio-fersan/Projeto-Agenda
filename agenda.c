@@ -161,7 +161,6 @@ int main(){
     // printf("-----------------------------------------------\n");
     // exibirProximos(diasTot);
     // menu();
-    exibirTrabalho();
 
 
     return 0;
