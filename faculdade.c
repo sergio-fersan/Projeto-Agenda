@@ -227,3 +227,78 @@ void excluirTrabalho(){
         break;
     }
 }
+
+void exibirTrabalho(){
+    int achou = 0;
+    int tipo;
+    char tmp[25];
+    while(1){
+        printf("Digite 1 para trabalho e 2 para prova (digite 0 para sair): ");
+        scanf("%d", &tipo);
+        clearBuffer();
+        if(tipo == 0){
+            return;
+        } else if(tipo == 1){
+            trabalho t;
+            while(1){
+                printf("Digite a materia do trabalho: ");
+                fgets(tmp, 25, stdin);
+                tmp[strcspn(tmp, "\n")] = '\0';
+                FILE *arq = fopen("trabalhos.txt", "r");
+                while(fscanf(arq, "Materia: %[^\n]\n", t.materia) == 1){
+                    fscanf(arq, "Professor: %[^\n]\n", t.professor);
+                    fscanf(arq, "Tema: %[^\n]\n", t.tema);
+                    fscanf(arq, "Grupo: %[^\n]\n", t.grupo);
+                    fscanf(arq, "Prazo: %d/%d (dd/mm)\n\n", &t.dia, &t.mes);
+                    if(strcmp(t.materia, tmp) == 0){
+                        printf("Trabalho encontrado:\n");
+                        printf("Materia: %s\n", t.materia);
+                        printf("Professor: %s\n", t.professor);
+                        printf("Tema: %s\n", t.tema);
+                        printf("Grupo: %s\n", t.grupo);
+                        printf("Prazo: %02d/%02d (dd/mm)\n", t.dia, t.mes);
+                        achou = 1;
+                        break;
+                    }
+                }
+                if(achou != 1){
+                    printf("Trabalho nao encontrado!! Tente novamente\n");
+                } else{
+                    break;
+                }
+                fclose(arq);
+            }
+        } else{
+            prova p;
+            while(1){
+                printf("Digite a materia da prova: ");
+                fgets(tmp, 25, stdin);
+                tmp[strcspn(tmp, "\n")] = '\0';
+                FILE *arq = fopen("provas.txt", "r");
+                while(fscanf(arq, "Materia: %[^\n]\n", p.materia) == 1){
+                    fscanf(arq, "Professor: %[^\n]\n", p.professor);
+                    fscanf(arq, "Conteudo: %[^\n]\n", p.conteudo);
+                    fscanf(arq, "Detalhes: %[^\n]\n", p.detalhes);
+                    fscanf(arq, "Data: %d/%d (dd/mm)\n\n", &p.dia, &p.mes);
+                    if(strcmp(p.materia, tmp) == 0){
+                        printf("Prova encontrada:\n");
+                        printf("Materia: %s\n", p.materia);
+                        printf("Professor: %s\n", p.professor);
+                        printf("Conteudo: %s\n", p.conteudo);
+                        printf("Detalhes: %s\n", p.detalhes);
+                        printf("Data: %02d/%02d (dd/mm)\n", p.dia, p.mes);
+                        achou = 1;
+                        break;
+                    }
+                }
+                if(achou != 1){
+                    printf("Prova nao encontrada!! Tente novamente\n");
+                } else{
+                    break;
+                }
+                fclose(arq);
+            }
+        }
+        break;
+    }
+}

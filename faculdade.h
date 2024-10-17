@@ -3,5 +3,6 @@
 
 void criarTrabalho();
 void excluirTrabalho();
+void exibirTrabalho();
 
 #endif
