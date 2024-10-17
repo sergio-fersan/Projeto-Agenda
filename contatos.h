@@ -4,5 +4,6 @@
 void criarContato();
 void exibirTudoContatos();
 void excluirContato();
+void exibirContato();
 
 #endif
