@@ -177,6 +177,7 @@ void excluirTrabalho(){
                 } else{
                     remove("trabalhos.txt");
                     rename("tmp.txt", "trabalhos.txt");
+                    excluirEventoTrabalho(t.materia, 1);
                     printf("Trabalho removido com sucesso!!\n");
                     break;
                 }
@@ -216,6 +217,7 @@ void excluirTrabalho(){
                 } else{
                     remove("provas.txt");
                     rename("tmp.txt", "provas.txt");
+                    excluirEventoTrabalho(p.materia, 2);
                     printf("Prova removida com sucesso!!\n");
                     break;
                 }

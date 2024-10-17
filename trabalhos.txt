@@ -1,6 +1,0 @@
-Materia: materia1
-Professor: ijijij
-Tema: nnj
-Grupo: eu, eu2
-Prazo: 3/2 (dd/mm)
-

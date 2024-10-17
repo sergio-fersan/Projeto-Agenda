@@ -1,6 +1,0 @@
-Materia: calculo
-Professor: adriano
-Conteudo: sofrimento
-Detalhes: individual, triste, dificil
-Data: 3/4 (dd/mm)
-
