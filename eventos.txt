@@ -3,28 +3,28 @@ Data: 18/06 (dd/mm)
 Local: llll
 Horario: hhhh
 
-Nome: teste2
-Data: 10/01 (dd/mm)
-Local: 0
-Horario: 0
-
 Nome: teste3
 Data: 15/06 (dd/mm)
 Local: llll
 Horario: hhhh
 
-Nome: teste4
-Data: 16/06 (dd/mm)
-Local: 0
-Horario: 0
-
 Nome: Trabalho sistemas
-Data: 3/4 (dd/mm)
+Data: 03/04 (dd/mm)
 Local: 0
 Horario: 0
 
 Nome: Prova calculo
-Data: 4/6 (dd/mm)
+Data: 04/06 (dd/mm)
 Local: 0
 Horario: 0
+
+Nome: evt1
+Data: 27/10 (dd/mm)
+Local: 0
+Horario: 0
+
+Nome: evt2
+Data: 29/10 (dd/mm)
+Local: local
+Horario: hor
 

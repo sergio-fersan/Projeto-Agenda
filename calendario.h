@@ -1,6 +1,7 @@
 #ifndef CALENDARIO_H
 #define CALENDARIO_H
 
+void clearBuffer();
 void criarEvento();
 void exibirEvento();
 void excluirEvento();

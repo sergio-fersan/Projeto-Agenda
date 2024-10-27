@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include "calendario.h"
-#include "variaveis.h"
+
+void clearBuffer(){
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 
 typedef struct{
     char nome[30];

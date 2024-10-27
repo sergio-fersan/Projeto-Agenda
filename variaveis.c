@@ -16,7 +16,7 @@ typedef struct {
 void clearBuffer(){
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
-}
+}menuAgenda
 
 void criarVarBin(const char *arquivo, const char *variavel, float valor) {
     FILE *arq = fopen(arquivo, "ab");
