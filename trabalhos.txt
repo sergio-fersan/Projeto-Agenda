@@ -1,6 +1,0 @@
-Materia: sistemas
-Professor: avelino
-Tema: nn sei
-Grupo: eu, eu2, eu3
-Prazo: 3/4 (dd/mm)
-

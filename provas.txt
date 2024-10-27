@@ -1,6 +1,0 @@
-Materia: calculo
-Professor: adriano
-Conteudo: nn sei
-Detalhes: nada
-Data: 4/6 (dd/mm)
-
