@@ -165,20 +165,26 @@ void exibirProximos(int diasMain) {
             diasTot = evtTmp.dia;
         }
 
-        if ((diasTot - diasMain) <= 5 && (diasTot - diasMain) > 0){ // se faltar 5 dias pro evento
+        if ((diasTot - diasMain) <= 5 && (diasTot - diasMain) > 0 && (diasTot - diasMain) != 1){ // se faltar 5 dias pro evento
             printf("Voce tem um evento em %d dias!!\n", diasTot - diasMain);
             printf("Nome: %s\n", evtTmp.nome);
             printf("Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
             printf("Local: %s\n", evtTmp.local);
             printf("Horario: %s\n\n", evtTmp.horario);
             achou = 1;
-        } else if(diasTot == diasMain){
+        } else if(diasTot == diasMain){ // se evento for hoje
             printf("Voce tem um evento hoje!!!!!!!\n");
             printf("Nome: %s\n", evtTmp.nome);
             printf("Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
             printf("Local: %s\n", evtTmp.local);
             printf("Horario: %s\n\n", evtTmp.horario);
             achou = 1;
+        } else if((diasTot - diasMain) == 1){ // se evento for amanha
+            printf("Voce tem um evento amanha!!!\n");
+            printf("Nome: %s\n", evtTmp.nome);
+            printf("Data: %02d/%02d (dd/mm)\n", evtTmp.dia, evtTmp.mes);
+            printf("Local: %s\n", evtTmp.local);
+            printf("Horario: %s\n\n", evtTmp.horario);
         }
     }
 
