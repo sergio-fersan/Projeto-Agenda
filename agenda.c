@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h> // so pra esperar antes de desligar
 #include "calendario.h"
 #include "faculdade.h"
 #include "contatos.h"
@@ -153,7 +154,14 @@ void menu(){
                 menuFaculdade();
                 break;
             case 0:
-                printf("Saindo do programa. Tchau!!!!");
+                printf("Saindo do programa em 3... ");
+                sleep(1);
+                printf("2... ");
+                sleep(1);
+                printf("1... ");
+                sleep(1);
+                printf("Tchau!!!!\n");
+                sleep(1);
                 exit(0);
             default:
                 printf("Opcao invalida!! Tente novamente\n");
