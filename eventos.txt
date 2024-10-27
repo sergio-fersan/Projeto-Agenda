@@ -1,0 +1,25 @@
+Nome: Aniversario do Flavinho
+Data: 3/11 (dd/mm)
+Local: Casa do Flavinho
+Horario: 18h30
+
+Nome: Estudar para calculo
+Data: 13/11 (dd/mm)
+Local: 0
+Horario: 0
+
+Nome: Prova Calculo
+Data: 15/11 (dd/mm)
+Local: 0
+Horario: 0
+
+Nome: Trabalho Desenvolvimento
+Data: 28/10 (dd/mm)
+Local: 0
+Horario: 0
+
+Nome: Trabalho Sistemas Digitais
+Data: 3/11 (dd/mm)
+Local: 0
+Horario: 0
+

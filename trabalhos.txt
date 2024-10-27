@@ -1,0 +1,12 @@
+Materia: Desenvolvimento
+Professor: Rudolf
+Tema: Projeto Livre
+Grupo: Sergio
+Prazo: 28/10 (dd/mm)
+
+Materia: Sistemas Digitais
+Professor: Valter
+Tema: Contadores
+Grupo: Sergio, Estela, Bia, Rhian
+Prazo: 3/11 (dd/mm)
+

@@ -142,7 +142,6 @@ void menu(){
         printf("-----------------------------------------------\n");
         printf("Digite sua escolha: ");
         scanf("%d", &esc);
-        printf("-----------------------------------------------\n");
         switch(esc){
             case 1:
                 menuAgenda();
