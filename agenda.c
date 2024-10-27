@@ -8,142 +8,158 @@
 void menu();
 
 void menuCalendario(){
-    printf("-----------------------------------------------\n");
-    printf("Selecione qual funcionalidade deseja utilizar:\n");
-    printf("1. Criar evento\n");
-    printf("2. Excluir evento\n");
-    printf("3. Exibir um evento\n");
-    printf("4. Exibir todos os eventos\n");
-    printf("0. Sair do aplicativo\n");
-    printf("-----------------------------------------------\n");
     int esc;
-    printf("Digite sua escolha: ");
-    scanf("%d", &esc);
-    printf("-----------------------------------------------\n");
-    clearBuffer();
-    switch(esc){
-        case 1:
-            criarEvento();
-            menuCalendario();
-            break;
-        case 2:
-            excluirEvento();
-            menuCalendario();
-            break;
-        case 3:
-            exibirEvento();
-            menuCalendario();
-            break;
-        case 4:
-            exibirTudo();
-            menuCalendario();
-            break;
-        case 0:
-            menu();
-            break;
-    }
+    do{
+        printf("-----------------------------------------------\n");
+        printf("Selecione qual funcionalidade deseja utilizar:\n");
+        printf("1. Criar evento\n");
+        printf("2. Excluir evento\n");
+        printf("3. Exibir um evento\n");
+        printf("4. Exibir todos os eventos\n");
+        printf("0. Sair do aplicativo\n");
+        printf("-----------------------------------------------\n");
+        printf("Digite sua escolha: ");
+        scanf("%d", &esc);
+        printf("-----------------------------------------------\n");
+        clearBuffer();
+        switch(esc){
+            case 1:
+                criarEvento();
+                menuCalendario();
+                break;
+            case 2:
+                excluirEvento();
+                menuCalendario();
+                break;
+            case 3:
+                exibirEvento();
+                menuCalendario();
+                break;
+            case 4:
+                exibirTudo();
+                menuCalendario();
+                break;
+            case 0:
+                menu();
+                break;
+            default:
+                printf("Opcao invalida!! Tente novamente\n");
+        }
+    } while(esc != 0);
 }
 
 void menuFaculdade(){
-    printf("-----------------------------------------------\n");
-    printf("Selecione qual funcionalidade deseja utilizar:\n");
-    printf("1. Registrar trabalho/prova\n");
-    printf("2. Excluir trabalho/prova\n");
-    printf("3. Exibir detalhes de um trabalho/prova\n");
-    printf("4. Exibir todos os trabalhos/provas\n");
-    printf("0. Sair do aplicativo\n");
-    printf("-----------------------------------------------\n");
     int esc;
-    printf("Digite sua escolha: ");
-    scanf("%d", &esc);
-    printf("-----------------------------------------------\n");
-    clearBuffer();
-    switch(esc){
-        case 1:
-            criarTrabalho();
-            menuFaculdade();
-            break;
-        case 2:
-            excluirTrabalho();
-            menuFaculdade();
-            break;
-        case 3:
-            exibirTrabalho();
-            menuFaculdade();
-            break;
-        case 4:
-            exibirTudoTrabalho();
-            menuFaculdade();
-            break;
-        case 0:
-            menu();
-            break;
-    }
+    do{
+        printf("-----------------------------------------------\n");
+        printf("Selecione qual funcionalidade deseja utilizar:\n");
+        printf("1. Registrar trabalho/prova\n");
+        printf("2. Excluir trabalho/prova\n");
+        printf("3. Exibir detalhes de um trabalho/prova\n");
+        printf("4. Exibir todos os trabalhos/provas\n");
+        printf("0. Sair do aplicativo\n");
+        printf("-----------------------------------------------\n");
+        printf("Digite sua escolha: ");
+        scanf("%d", &esc);
+        printf("-----------------------------------------------\n");
+        clearBuffer();
+        switch(esc){
+            case 1:
+                criarTrabalho();
+                menuFaculdade();
+                break;
+            case 2:
+                excluirTrabalho();
+                menuFaculdade();
+                break;
+            case 3:
+                exibirTrabalho();
+                menuFaculdade();
+                break;
+            case 4:
+                exibirTudoTrabalho();
+                menuFaculdade();
+                break;
+            case 0:
+                menu();
+                break;
+            default:
+                printf("Opcao invalida!! Tente novamente\n");
+        }
+    } while(esc != 0);
 }
 
 void menuAgenda(){
-    printf("-----------------------------------------------\n");
-    printf("Selecione qual funcionalidade deseja utilizar:\n");
-    printf("1. Criar contato\n");
-    printf("2. Excluir contato\n");
-    printf("3. Exibir um contato\n");
-    printf("4. Exibir todos os contatos\n");
-    printf("0. Sair do aplicativo\n");
-    printf("-----------------------------------------------\n");
     int esc;
-    printf("Digite sua escolha: ");
-    scanf("%d", &esc);
-    printf("-----------------------------------------------\n");
-    clearBuffer();
-    switch(esc){
-        case 1:
-            criarContato();
-            menuAgenda();
-            break;
-        case 2:
-            excluirContato();
-            menuAgenda();
-            break;
-        case 3:
-            exibirContato();
-            menuAgenda();
-            break;
-        case 4:
-            exibirTudoContatos();
-            menuAgenda();
-            break;
-        case 0:
-            menu();
-            break;
-    }
+    do{
+        printf("-----------------------------------------------\n");
+        printf("Selecione qual funcionalidade deseja utilizar:\n");
+        printf("1. Criar contato\n");
+        printf("2. Excluir contato\n");
+        printf("3. Exibir um contato\n");
+        printf("4. Exibir todos os contatos\n");
+        printf("0. Sair do aplicativo\n");
+        printf("-----------------------------------------------\n");
+        printf("Digite sua escolha: ");
+        scanf("%d", &esc);
+        printf("-----------------------------------------------\n");
+        clearBuffer();
+        switch(esc){
+            case 1:
+                criarContato();
+                menuAgenda();
+                break;
+            case 2:
+                excluirContato();
+                menuAgenda();
+                break;
+            case 3:
+                exibirContato();
+                menuAgenda();
+                break;
+            case 4:
+                exibirTudoContatos();
+                menuAgenda();
+                break;
+            case 0:
+                menu();
+                break;
+            default:
+                printf("Opcao invalida!! Tente novamente\n");
+        }
+    } while(esc != 0);
 }
 
 void menu(){
-    printf("-----------------------------------------------\n");
-    printf("Selecione qual aplicativo deseja utilizar:\n");
-    printf("1. Agenda\n");
-    printf("2. Calendario\n");
-    printf("3. Organizador de trabalhos de faculdade\n");
-    printf("0. Sair\n");
-    printf("-----------------------------------------------\n");
     int esc;
-    printf("Digite sua escolha: ");
-    scanf("%d", &esc);
-    printf("-----------------------------------------------\n");
-    switch(esc){
-        case 1:
-            menuAgenda();
-            break;
-        case 2:
-            menuCalendario();
-            break;
-        case 3:
-            menuFaculdade();
-            break;
-        case 0:
-            printf("Saindo do programa. Tchau!!!!");
-            exit(0);
-    }
+    do{
+        printf("-----------------------------------------------\n");
+        printf("Selecione qual aplicativo deseja utilizar:\n");
+        printf("1. Agenda\n");
+        printf("2. Calendario\n");
+        printf("3. Organizador de trabalhos de faculdade\n");
+        printf("0. Sair\n");
+        printf("-----------------------------------------------\n");
+        printf("Digite sua escolha: ");
+        scanf("%d", &esc);
+        printf("-----------------------------------------------\n");
+        switch(esc){
+            case 1:
+                menuAgenda();
+                break;
+            case 2:
+                menuCalendario();
+                break;
+            case 3:
+                menuFaculdade();
+                break;
+            case 0:
+                printf("Saindo do programa. Tchau!!!!");
+                exit(0);
+            default:
+                printf("Opcao invalida!! Tente novamente\n");
+        }
+    } while(esc != 0);
 }
 
 void calendario(){
