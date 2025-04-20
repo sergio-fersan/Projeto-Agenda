@@ -1,6 +1,7 @@
 # **Projeto Agenda**
 
 ## Sergio de Siqueira Santos - 22.124.082-3
+## Projeto desenvolvido como parte da matéria de Desenvolvimento de Algoritmos da FEI
 
 Para executar este projeto, basta abrir o executável **"agenda.exe"**
 
